@@ -1,0 +1,3805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфеты из Дубая - Dubai Candies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Светлая тема */
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --brown: #8B4513;
+            --dark-brown: #5D2906;
+            --cream: #FFF8E7;
+            --burgundy: #800020;
+            --blue: #0E4C92;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #E0E0E0;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --footer-bg: #5D2906;
+            --hero-overlay: rgba(0, 0, 0, 0.5);
+        }
+
+        .dark-theme {
+            /* Темная тема */
+            --gold: #FFD700;
+            --dark-gold: #FFC107;
+            --brown: #F5DEB3;
+            --dark-brown: #F5F5DC;
+            --cream: #2D2D2D;
+            --burgundy: #9C27B0;
+            --blue: #2196F3;
+            --white: #121212;
+            --gray: #1E1E1E;
+            --text-dark: #E0E0E0;
+            --text-light: #E0E0E0;
+            --bg-color: #121212;
+            --card-bg: #1E1E1E;
+            --border-color: #333333;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --footer-bg: #1A1A1A;
+            --hero-overlay: rgba(0, 0, 0, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            transition: all 0.5s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Анимации */
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Шапка сайта - ОПТИМИЗИРОВАНА ДЛЯ МОБИЛЬНЫХ */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideInUp 0.8s ease;
+            transition: background-color 0.5s ease;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            cursor: pointer;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .logo:hover {
+            animation: pulse 1s infinite;
+        }
+
+        .logo i {
+            color: var(--burgundy);
+            animation: float 3s ease-in-out infinite;
+            font-size: 22px;
+        }
+
+        .accessibility-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        .theme-switcher, .font-switcher {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: var(--text-dark);
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            background-color: var(--gray);
+        }
+
+        .theme-switcher:hover, .font-switcher:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            transform: rotate(360deg);
+            transition: transform 0.5s ease;
+        }
+
+        .language-switcher {
+            position: relative;
+        }
+
+        .language-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .language-btn:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            display: none;
+            z-index: 1001;
+            min-width: 80px;
+            overflow: hidden;
+        }
+
+        .language-dropdown.active {
+            display: block;
+            animation: slideInUp 0.3s ease;
+        }
+
+        .language-dropdown button {
+            width: 100%;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .language-dropdown button:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .header-actions i {
+            font-size: 18px;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-actions i:hover {
+            color: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .cart-count {
+            background-color: var(--burgundy);
+            color: var(--white);
+            font-size: 10px;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            animation: pulse 2s infinite;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .search-container {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        .search-input {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 160px;
+            font-family: 'Roboto', sans-serif;
+            padding-left: 30px;
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            width: 180px;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .user-menu {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--card-bg);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            border-radius: 5px;
+            min-width: 180px;
+            display: none;
+            z-index: 1000;
+            animation: slideInUp 0.3s ease;
+        }
+
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .user-dropdown a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .user-dropdown a:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            padding-left: 20px;
+        }
+
+        /* Главный баннер - ТЕКСТ ВСЕГДА БЕЛЫЙ */
+        .hero {
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff !important;
+            text-align: center;
+            padding: 70px 15px;
+            margin-bottom: 50px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #ffffff !important;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #ffffff !important;
+            animation: slideInUp 1s ease 0.5s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            animation: slideInUp 1s ease 0.7s both;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        /* Преимущества */
+        .advantages {
+            padding: 50px 0;
+            background-color: var(--cream);
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            position: relative;
+            animation: slideInUp 1s ease;
+            color: var(--text-dark);
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 15px auto;
+            animation: fadeInLeft 1s ease 0.5s both;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 25px 15px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            opacity: 0;
+        }
+
+        .advantage-item.animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .advantage-item i {
+            font-size: 35px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .advantage-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .advantage-item p {
+            font-size: 14px;
+        }
+
+        /* Каталог товаров */
+        .catalog {
+            padding: 50px 0;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease;
+        }
+
+        .catalog-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: slideInUp 1s ease;
+        }
+
+        .sort-filter {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 6px 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            font-size: 13px;
+        }
+
+        .filter-btn.active {
+            background-color: var(--gold);
+            color: var(--white);
+            border-color: var(--gold);
+            animation: pulse 2s infinite;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--gray);
+            transform: scale(1.05);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .product-card.animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 500;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+
+        .product-badge.new {
+            background-color: var(--blue);
+        }
+
+        .product-icon {
+            height: 140px;
+            background-color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 55px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-icon {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 17px;
+            margin-bottom: 8px;
+            min-height: 52px;
+            color: var(--text-dark);
+        }
+
+        .product-description {
+            color: var(--text-dark);
+            opacity: 0.8;
+            font-size: 13px;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .product-weight {
+            color: var(--text-dark);
+            opacity: 0.7;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .add-to-cart {
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--dark-gold);
+            transform: scale(1.1);
+            animation: shake 0.5s ease;
+        }
+
+        /* О компании */
+        .about {
+            padding: 50px 0;
+            background-color: var(--gray);
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .about-text h2 {
+            margin-bottom: 18px;
+            color: var(--text-dark);
+            font-size: 32px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            animation: fadeInRight 1s ease;
+            transition: all 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Подвал - ТЕКСТ ВСЕГДА БЕЛЫЙ */
+        footer {
+            background-color: var(--footer-bg);
+            color: #ffffff !important;
+            padding: 50px 0 15px;
+            animation: fadeIn 1s ease;
+            transition: background-color 0.5s ease;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            margin-bottom: 35px;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 18px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            animation: fadeInLeft 0.8s ease;
+            opacity: 0;
+        }
+
+        .footer-links li.animated {
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        .footer-links a {
+            color: #ffffff !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 0;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold) !important;
+            padding-left: 10px;
+            opacity: 1;
+        }
+
+        .footer-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover:after {
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff !important;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            opacity: 0;
+        }
+
+        .social-links a.animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            transform: translateY(-5px) rotate(360deg);
+            color: var(--white) !important;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: #ffffff !important;
+            opacity: 0.6;
+            animation: fadeIn 1s ease;
+        }
+
+        .footer-description {
+            color: #ffffff !important;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        /* Корзина */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--card-bg);
+            box-shadow: -5px 0 15px var(--shadow-color);
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            font-size: 20px;
+            animation: slideInLeft 0.5s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--white);
+            transition: transform 0.3s ease;
+        }
+
+        .close-cart:hover {
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .cart-item-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 22px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .cart-item:hover .cart-item-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .cart-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+            word-break: break-word;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .cart-item-price {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .quantity-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            font-size: 12px;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .cart-item-quantity {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 13px;
+            margin-left: auto;
+            transition: all 0.3s ease;
+        }
+
+        .remove-item:hover {
+            transform: scale(1.1);
+            color: #ff0000;
+        }
+
+        .cart-footer {
+            padding: 18px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--gray);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--text-dark);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease 0.2s both;
+            font-size: 16px;
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--dark-gold);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 35px 18px;
+            color: var(--text-dark);
+            opacity: 0.7;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Модальные окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 450px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideInUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--gold);
+            color: var(--white);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: var(--white);
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+            transform: scale(1.01);
+        }
+
+        .example-text {
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 5px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .order-summary {
+            background-color: var(--gray);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 18px;
+            animation: fadeInUp 0.5s ease 0.2s both;
+        }
+
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .order-success {
+            text-align: center;
+            padding: 25px 18px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .order-success i {
+            font-size: 55px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            animation: pulse 2s infinite;
+        }
+
+        .order-number {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 18px 0;
+            word-break: break-all;
+            animation: slideInUp 0.5s ease;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* Отслеживание заказов для администратора */
+        .order-tracking-admin {
+            padding: 50px 0;
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .admin-orders {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .admin-order {
+            padding: 18px;
+            border-bottom: 1px solid var(--border-color);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .admin-order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .admin-order-items {
+            margin-bottom: 12px;
+        }
+
+        .admin-order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding-left: 18px;
+            flex-wrap: wrap;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .admin-order-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .status-delivered {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-select {
+            margin-left: 8px;
+            padding: 4px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            font-size: 12px;
+        }
+
+        .admin-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Трекер заказов для гостя */
+        .order-tracker {
+            padding: 50px 0;
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .tracker-form {
+            max-width: 450px;
+            margin: 0 auto 35px;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            animation: slideInUp 1s ease;
+        }
+
+        .tracker-order {
+            background-color: var(--card-bg);
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin-bottom: 18px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        /* Адаптивность - УЛУЧШЕНА ДЛЯ МОБИЛЬНЫХ */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .header-bottom {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            
+            .product-title {
+                min-height: auto;
+                font-size: 15px;
+            }
+            
+            .product-description {
+                font-size: 12px;
+            }
+            
+            .price {
+                font-size: 18px;
+            }
+            
+            .add-to-cart {
+                font-size: 12px;
+                padding: 7px 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .search-input {
+                width: 130px;
+            }
+            
+            .search-input:focus {
+                width: 150px;
+            }
+            
+            .catalog-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .cart-sidebar {
+                max-width: 100%;
+            }
+            
+            .modal-content {
+                margin: 15px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .product-icon {
+                height: 110px;
+                font-size: 45px;
+            }
+            
+            .advantage-item h3 {
+                font-size: 17px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+            
+            .hero {
+                padding: 60px 15px;
+                margin-bottom: 40px;
+            }
+            
+            .advantages, .catalog, .about {
+                padding: 40px 0;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .header-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .search-input {
+                width: 110px;
+                font-size: 12px;
+                padding: 5px 10px;
+                padding-left: 25px;
+            }
+            
+            .search-icon {
+                left: 8px;
+                font-size: 12px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
+                padding: 8px 0;
+            }
+            
+            .header-bottom {
+                padding: 10px 0;
+                gap: 10px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            nav a {
+                font-size: 13px;
+            }
+            
+            .header-actions i {
+                font-size: 16px;
+            }
+            
+            .cart-count {
+                width: 14px;
+                height: 14px;
+                font-size: 9px;
+                top: -5px;
+                right: -5px;
+            }
+            
+            .logo {
+                font-size: 16px;
+            }
+            
+            .logo i {
+                font-size: 20px;
+            }
+            
+            .theme-switcher, .font-switcher, .language-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .language-btn {
+                font-size: 11px;
+            }
+            
+            .product-card {
+                max-width: 100%;
+            }
+            
+            .product-title {
+                font-size: 15px;
+                min-height: auto;
+            }
+            
+            .product-price {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .add-to-cart {
+                width: 100%;
+                justify-content: center;
+                font-size: 13px;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .filter-btn {
+                padding: 5px 12px;
+                font-size: 12px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .cart-item-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+            
+            .cart-item-actions {
+                width: 100%;
+            }
+            
+            .modal-content {
+                margin: 10px;
+            }
+            
+            .accessibility-controls {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 6px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+            
+            .footer-content {
+                gap: 25px;
+            }
+            
+            .footer-logo {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-input {
+                width: 100px;
+            }
+            
+            .search-input:focus {
+                width: 120px;
+            }
+            
+            .product-icon {
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            
+            .logo {
+                font-size: 15px;
+            }
+            
+            .logo .site-title {
+                display: none;
+            }
+            
+            .logo i {
+                font-size: 24px;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-container {
+                flex-grow: 1;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .search-input:focus {
+                width: 100%;
+            }
+            
+            .user-menu, .cart-icon {
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 22px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .advantage-item {
+                padding: 20px 12px;
+            }
+            
+            .advantage-item i {
+                font-size: 30px;
+            }
+            
+            .advantage-item h3 {
+                font-size: 16px;
+            }
+            
+            .product-title {
+                font-size: 14px;
+            }
+            
+            .price {
+                font-size: 16px;
+            }
+            
+            .theme-switcher, .font-switcher, .language-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 13px;
+            }
+            
+            .language-btn {
+                font-size: 10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+        }
+
+        /* Анимации для текста и элементов */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Мобильное меню для очень маленьких экранов */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        @media (max-width: 480px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
+                display: block;
+                animation: slideInUp 0.3s ease;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                background: var(--card-bg);
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px var(--shadow-color);
+                margin-top: 10px;
+            }
+            
+            .header-bottom {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo" id="logo">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span class="site-title">Конфеты из Дубая</span>
+                </div>
+                <div class="accessibility-controls">
+                    <button class="theme-switcher" id="theme-toggle" title="Сменить тему">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="font-switcher" id="font-toggle" title="Увеличить шрифт">
+                        <i class="fas fa-font"></i>
+                    </button>
+                    <div class="language-switcher">
+                        <button class="language-btn" id="language-toggle">
+                            <span class="current-lang">RU</span>
+                        </button>
+                        <div class="language-dropdown" id="language-dropdown">
+                            <button class="lang-option" data-lang="ru">Русский</button>
+                            <button class="lang-option" data-lang="en">English</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#" id="home-link">Главная</a></li>
+                        <li><a href="#" id="catalog-link">Каталог</a></li>
+                        <li><a href="#" id="gift-sets-link">Подарочные наборы</a></li>
+                        <li><a href="#" id="about-link">О нас</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Поиск товаров..." id="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="user-menu">
+                        <i class="fas fa-user" id="user-icon"></i>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="#" id="guest-login">Войти как гость</a>
+                            <a href="#" id="track-order-btn">Отследить заказ</a>
+                            <a href="#" id="logout-btn" style="display: none;">Выйти</a>
+                            <a href="#" id="order-tracking-admin-btn" style="display: none;">Отслеживание заказов</a>
+                        </div>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero-title">Эксклюзивные конфеты и восточные сладости из Дубая</h1>
+            <p class="hero-subtitle">Насладитесь настоящим вкусом восточной роскоши с нашими премиальными сладости</p>
+            <a href="#" class="btn" id="hero-catalog-btn">В каталог</a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">Наши преимущества</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item animate-on-scroll">
+                    <i class="fas fa-plane"></i>
+                    <h3 class="advantage-title">Прямые поставки из ОАЭ</h3>
+                    <p class="advantage-text">Мы работаем напрямую с производителями, гарантируя подлинность и качество</p>
+                </div>
+                <div class="advantage-item animate-on-scroll">
+                    <i class="fas fa-leaf"></i>
+                    <h3 class="advantage-title">Натуральные ингредиенты</h3>
+                    <p class="advantage-text">Только натуральные компоненты без искусственных добавок и консервантов</p>
+                </div>
+                <div class="advantage-item animate-on-scroll">
+                    <i class="fas fa-gift"></i>
+                    <h3 class="advantage-title">Роскошная упаковка</h3>
+                    <p class="advantage-text">Эксклюзивная упаковка, идеально подходящая для подарков</p>
+                </div>
+                <div class="advantage-item animate-on-scroll">
+                    <i class="fas fa-award"></i>
+                    <h3 class="advantage-title">Гарантия качества</h3>
+                    <p class="advantage-text">Все товары проходят строгий контроль качества перед отправкой</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2 class="section-title">Каталог сладостей</h2>
+            
+            <div class="catalog-controls">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Все товары</button>
+                    <button class="filter-btn" data-filter="chocolate">Шоколадные</button>
+                    <button class="filter-btn" data-filter="date">Финиковые</button>
+                    <button class="filter-btn" data-filter="nuts">С орехами</button>
+                    <button class="filter-btn" data-filter="loukoum">Лукум</button>
+                </div>
+                
+                <div class="sort-filter">
+                    <span class="sort-label">Сортировать:</span>
+                    <select id="sort-select">
+                        <option value="popular">По популярности</option>
+                        <option value="price-asc">По возрастанию цены</option>
+                        <option value="price-desc">По убыванию цены</option>
+                        <option value="new">По новизне</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Товары будут загружены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>О нас</h2>
+                    <p class="about-text-1">«Конфеты из Дубая» — это не просто магазин восточных сладостей, а настоящий проводник в мир арабской кулинарной роскоши. Мы начали свой путь в 2018 году и за несколько лет выросли в крупнейшего поставщика эксклюзивных сладостей из Объединенных Арабских Эмиратов.</p>
+                    <p class="about-text-2">Наша философия — предлагать только лучшее. Мы лично отбираем каждого производителя, тестируем продукцию и контролируем каждый этап. Мы гордимся тем, что привозим в Россию не просто сладости, а частичку восточной культуры и гостеприимства.</p>
+                    <p class="about-text-3">Сегодня нашими клиентами являются не только частные ценители изысканных вкусов, но и ведущие отели, рестораны и корпорации, которые выбирают наши сладости для своих гостей и партнеров.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Восточные сладости из Дубая">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Конфеты из Дубая</a>
+                    <p class="footer-description">Эксклюзивные конфеты и восточные сладости премиум-класса, доставляемые прямо из Объединенных Арабских Эмиратов.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Меню</h3>
+                    <ul>
+                        <li><a href="#" class="footer-nav" data-target="home">Главная</a></li>
+                        <li><a href="#" class="footer-nav" data-target="catalog">Каталог</a></li>
+                        <li><a href="#" class="footer-nav" data-target="gift-sets">Подарочные наборы</a></li>
+                        <li><a href="#" class="footer-nav" data-target="about">О нас</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="copyright-text">© 2025 «Конфеты из Дубая». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Боковая панель корзины -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Корзина</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Товары в корзине будут добавляться сюда -->
+            <div class="empty-cart">
+                <p class="empty-cart-text">Ваша корзина пуста</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Итого:</span>
+                <span id="cart-total">0 ₽</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно оформления заказа -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="order-modal-title">Оформление заказа</h3>
+                <button class="close-modal" id="close-order-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="order-form">
+                    <div class="form-group">
+                        <label for="customer-name" class="name-label">Ваше имя *</label>
+                        <input type="text" id="customer-name" class="form-control" required placeholder="Иван Иванов">
+                        <div class="example-text name-example">Пример: Иван Иванов</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-phone" class="phone-label">Номер телефона *</label>
+                        <input type="tel" id="customer-phone" class="form-control" required placeholder="+7 (999) 123-45-67">
+                        <div class="example-text phone-example">Пример: +7 (999) 123-45-67</div>
+                    </div>
+                    
+                    <div class="order-summary" id="order-summary">
+                        <!-- Содержимое корзины будет здесь -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="payment-label">Способ оплаты *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="cash-payment" name="payment" value="cash" checked>
+                                <label for="cash-payment" class="cash-label">Наличные при получении</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="transfer-payment" name="payment" value="transfer">
+                                <label for="transfer-payment" class="transfer-label">Перевод на номер телефона</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" id="submit-order" style="width: 100%;">Подтвердить заказ</button>
+                </div>
+                
+                <div id="order-success" style="display: none;">
+                    <div class="order-success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 class="success-title">Заказ успешно оформлен!</h3>
+                        <p class="success-text">Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+                        <div class="order-number" id="order-number-display"></div>
+                        <div class="order-actions">
+                            <button class="btn" id="track-this-order">Отследить заказ</button>
+                            <button class="btn btn-secondary" id="close-success-modal">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Панель отслеживания заказов -->
+    <div class="order-tracking-admin" id="order-tracking-admin">
+        <div class="container">
+            <div class="admin-actions">
+                <h2 class="section-title" style="margin-bottom: 0;">Отслеживание заказов</h2>
+                <button class="btn btn-secondary" id="back-to-main">На главную</button>
+            </div>
+            <div class="admin-orders" id="admin-orders-container">
+                <!-- Заказы будут отображаться здесь -->
+                <div class="empty-cart" id="no-orders-message">
+                    <p class="no-orders-text">Заказов пока нет</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Трекер заказов для гостя -->
+    <div class="order-tracker" id="order-tracker">
+        <div class="container">
+            <h2 class="section-title">Отслеживание заказа</h2>
+            
+            <div class="tracker-form">
+                <div class="form-group">
+                    <label for="track-order-number" class="tracker-label">Номер заказа</label>
+                    <input type="text" id="track-order-number" class="form-control" placeholder="ORD-12345678">
+                </div>
+                <button class="btn" id="track-order-submit" style="width: 100%;">Найти заказ</button>
+            </div>
+            
+            <div id="tracker-results">
+                <!-- Результаты поиска заказа будут здесь -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Словарь переводов
+        const translations = {
+            ru: {
+                // Общие
+                siteTitle: "Конфеты из Дубая",
+                cart: "Корзина",
+                total: "Итого",
+                emptyCart: "Ваша корзина пуста",
+                remove: "Удалить",
+                addToCart: "В корзину",
+                checkout: "Оформить заказ",
+                searchPlaceholder: "Поиск товаров...",
+                sortBy: "Сортировать:",
+                
+                // Меню
+                home: "Главная",
+                catalog: "Каталог",
+                giftSets: "Подарочные наборы",
+                about: "О нас",
+                
+                // Герой
+                heroTitle: "Эксклюзивные конфеты и восточные сладости из Дубая",
+                heroSubtitle: "Насладитесь настоящим вкусом восточной роскоши с нашими премиальными сладости",
+                toCatalog: "В каталог",
+                
+                // Преимущества
+                advantages: "Наши преимущества",
+                advantage1Title: "Прямые поставки из ОАЭ",
+                advantage1Text: "Мы работаем напрямую с производителями, гарантируя подлинность и качество",
+                advantage2Title: "Натуральные ингредиенты",
+                advantage2Text: "Только натуральные компоненты без искусственных добавок и консервантов",
+                advantage3Title: "Роскошная упаковка",
+                advantage3Text: "Эксклюзивная упаковка, идеально подходящая для подарков",
+                advantage4Title: "Гарантия качества",
+                advantage4Text: "Все товары проходят строгий контроль качества перед отправкой",
+                
+                // Каталог
+                sweetsCatalog: "Каталог сладостей",
+                allProducts: "Все товары",
+                chocolate: "Шоколадные",
+                date: "Финиковые",
+                nuts: "С орехами",
+                loukoum: "Лукум",
+                sortPopular: "По популярности",
+                sortPriceAsc: "По возрастанию цены",
+                sortPriceDesc: "По убыванию цены",
+                sortNew: "По новизне",
+                newBadge: "Новинка",
+                hitBadge: "Хит",
+                noProducts: "Товары не найдены",
+                
+                // О нас
+                aboutTitle: "О нас",
+                aboutText1: "«Конфеты из Дубая» — это не просто магазин восточных сладостей, а настоящий проводник в мир арабской кулинарной роскоши. Мы начали свой путь в 2018 году и за несколько лет выросли в крупнейшего поставщика эксклюзивных сладостей из Объединенных Арабских Эмиратов.",
+                aboutText2: "Наша философия — предлагать только лучшее. Мы лично отбираем каждого производителя, тестируем продукцию и контролируем каждый этап. Мы гордимся тем, что привозим в Россию не просто сладости, а частичку восточной культуры и гостеприимства.",
+                aboutText3: "Сегодня нашими клиентами являются не только частные ценители изысканных вкусов, но и ведущие отели, рестораны и корпорации, которые выбирают наши сладости для своих гостей и партнеров.",
+                
+                // Футер
+                footerDescription: "Эксклюзивные конфеты и восточные сладости премиум-класса, доставляемые прямо из Объединенных Арабских Эмиратов.",
+                copyright: "© 2025 «Конфеты из Дубая». Все права защищены.",
+                
+                // Пользовательское меню
+                guestLogin: "Войти как гость",
+                trackOrder: "Отследить заказ",
+                logout: "Выйти",
+                orderTrackingAdmin: "Отслеживание заказов",
+                
+                // Оформление заказа
+                orderTitle: "Оформление заказа",
+                nameLabel: "Ваше имя *",
+                namePlaceholder: "Иван Иванов",
+                nameExample: "Пример: Иван Иванов",
+                phoneLabel: "Номер телефона *",
+                phonePlaceholder: "+7 (999) 123-45-67",
+                phoneExample: "Пример: +7 (999) 123-45-67",
+                paymentLabel: "Способ оплаты *",
+                cashLabel: "Наличные при получении",
+                transferLabel: "Перевод на номер телефона",
+                confirmOrder: "Подтвердить заказ",
+                orderSuccess: "Заказ успешно оформлен!",
+                successText: "Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время для подтверждения.",
+                trackThisOrder: "Отследить заказ",
+                close: "Закрыть",
+                
+                // Отслеживание заказов
+                adminLoginTitle: "Вход для отслеживания заказов",
+                passwordLabel: "Пароль для доступа к отслеживанию заказов",
+                passwordPlaceholder: "Введите пароль",
+                passwordExample: "Пароль: admin123",
+                login: "Войти",
+                wrongPassword: "Неверный пароль",
+                orderTrackingAdminTitle: "Отслеживание заказов",
+                backToMain: "На главную",
+                noOrders: "Заказов пока нет",
+                order: "Заказ",
+                client: "Клиент",
+                phone: "Телефон",
+                paymentMethod: "Способ оплата",
+                cash: "Наличные",
+                transfer: "Перевод на телефон",
+                statusPending: "Ожидает обработки",
+                statusProcessing: "В сборке",
+                statusDelivered: "Доставлен",
+                statusCancelled: "Отменен",
+                deleteOrder: "Удалить заказ",
+                
+                // Трекер заказа
+                orderTracking: "Отслеживание заказа",
+                orderNumberLabel: "Номер заказа",
+                orderNumberPlaceholder: "ORD-12345678",
+                findOrder: "Найти заказ",
+                enterOrderNumber: "Пожалуйста, введите номер заказа",
+                orderNotFound: "Заказ с таким номером не найден",
+                cancelOrder: "Отменить заказ",
+                cancelConfirm: "Вы уверены, что хотите отменить этот заказ?",
+                deleteConfirm: "Вы уверены, что хотите удалить этот заказ?",
+                
+                // Уведомления
+                addedToCart: "добавлен в корзину",
+                cartEmpty: "Корзина пуста",
+                fillAllFields: "Пожалуйста, заполните все обязательные поля",
+                orderPlaced: "Заказ успешно оформлен!",
+                orderCancelled: "Заказ отменен",
+                orderDeleted: "Заказ удален",
+                statusChanged: "Статус заказа изменен",
+                loggedInAsGuest: "Вы вошли как гость",
+                loggedInAsAdmin: "Вы вошли для отслеживания заказов",
+                loggedOut: "Вы вышли из системы",
+                secretAdminActivated: "Режим отслеживания заказов активирован!",
+                languageChanged: "Язык изменен на русский",
+                darkThemeEnabled: "Темная тема включена",
+                lightThemeEnabled: "Светлая тема включена",
+                largeFontEnabled: "Крупный шрифт включен",
+                largeFontDisabled: "Крупный шрифт выключен"
+            },
+            en: {
+                // Общие
+                siteTitle: "Dubai Candies",
+                cart: "Cart",
+                total: "Total",
+                emptyCart: "Your cart is empty",
+                remove: "Remove",
+                addToCart: "Add to Cart",
+                checkout: "Checkout",
+                searchPlaceholder: "Search products...",
+                sortBy: "Sort by:",
+                
+                // Меню
+                home: "Home",
+                catalog: "Catalog",
+                giftSets: "Gift Sets",
+                about: "About",
+                
+                // Герой
+                heroTitle: "Exclusive Candies and Eastern Sweets from Dubai",
+                heroSubtitle: "Enjoy the real taste of Eastern luxury with our premium sweets",
+                toCatalog: "To Catalog",
+                
+                // Преимущества
+                advantages: "Our Advantages",
+                advantage1Title: "Direct Supplies from UAE",
+                advantage1Text: "We work directly with manufacturers, guaranteeing authenticity and quality",
+                advantage2Title: "Natural Ingredients",
+                advantage2Text: "Only natural components without artificial additives and preservatives",
+                advantage3Title: "Luxurious Packaging",
+                advantage3Text: "Exclusive packaging, perfect for gifts",
+                advantage4Title: "Quality Guarantee",
+                advantage4Text: "All products undergo strict quality control before shipping",
+                
+                // Каталог
+                sweetsCatalog: "Sweets Catalog",
+                allProducts: "All Products",
+                chocolate: "Chocolate",
+                date: "Date",
+                nuts: "With Nuts",
+                loukoum: "Loukoum",
+                sortPopular: "By Popularity",
+                sortPriceAsc: "Price: Low to High",
+                sortPriceDesc: "Price: High to Low",
+                sortNew: "By Newness",
+                newBadge: "New",
+                hitBadge: "Hit",
+                noProducts: "Products not found",
+                
+                // О нас
+                aboutTitle: "About Us",
+                aboutText1: "\"Dubai Candies\" is not just a store of Eastern sweets, but a real guide to the world of Arabic culinary luxury. We started our journey in 2018 and within a few years have grown into the largest supplier of exclusive sweets from the United Arab Emirates.",
+                aboutText2: "Our philosophy is to offer only the best. We personally select each manufacturer, test products and control every stage. We are proud to bring to Russia not just sweets, but a piece of Eastern culture and hospitality.",
+                aboutText3: "Today, our clients are not only private connoisseurs of refined tastes, but also leading hotels, restaurants and corporations that choose our sweets for their guests and partners.",
+                
+                // Футер
+                footerDescription: "Exclusive candies and premium Eastern sweets, delivered directly from the United Arab Emirates.",
+                copyright: "© 2025 «Dubai Candies». All rights reserved.",
+                
+                // Пользовательское меню
+                guestLogin: "Login as Guest",
+                trackOrder: "Track Order",
+                logout: "Logout",
+                orderTrackingAdmin: "Order Tracking",
+                
+                // Оформление заказа
+                orderTitle: "Checkout",
+                nameLabel: "Your Name *",
+                namePlaceholder: "John Smith",
+                nameExample: "Example: John Smith",
+                phoneLabel: "Phone Number *",
+                phonePlaceholder: "+1 (234) 567-8900",
+                phoneExample: "Example: +1 (234) 567-8900",
+                paymentLabel: "Payment Method *",
+                cashLabel: "Cash on Delivery",
+                transferLabel: "Transfer to Phone",
+                confirmOrder: "Confirm Order",
+                orderSuccess: "Order Successfully Placed!",
+                successText: "Thank you for your order. We will contact you shortly for confirmation.",
+                trackThisOrder: "Track Order",
+                close: "Close",
+                
+                // Отслеживание заказов
+                adminLoginTitle: "Login for Order Tracking",
+                passwordLabel: "Password for Order Tracking Access",
+                passwordPlaceholder: "Enter password",
+                passwordExample: "Password: admin123",
+                login: "Login",
+                wrongPassword: "Incorrect password",
+                orderTrackingAdminTitle: "Order Tracking",
+                backToMain: "To Main",
+                noOrders: "No orders yet",
+                order: "Order",
+                client: "Client",
+                phone: "Phone",
+                paymentMethod: "Payment Method",
+                cash: "Cash",
+                transfer: "Phone Transfer",
+                statusPending: "Pending",
+                statusProcessing: "Processing",
+                statusDelivered: "Delivered",
+                statusCancelled: "Cancelled",
+                deleteOrder: "Delete Order",
+                
+                // Трекер заказа
+                orderTracking: "Order Tracking",
+                orderNumberLabel: "Order Number",
+                orderNumberPlaceholder: "ORD-12345678",
+                findOrder: "Find Order",
+                enterOrderNumber: "Please enter order number",
+                orderNotFound: "Order with this number not found",
+                cancelOrder: "Cancel Order",
+                cancelConfirm: "Are you sure you want to cancel this order?",
+                deleteConfirm: "Are you sure you want to delete this order?",
+                
+                // Уведомления
+                addedToCart: "added to cart",
+                cartEmpty: "Cart is empty",
+                fillAllFields: "Please fill in all required fields",
+                orderPlaced: "Order successfully placed!",
+                orderCancelled: "Order cancelled",
+                orderDeleted: "Order deleted",
+                statusChanged: "Order status changed",
+                loggedInAsGuest: "You logged in as guest",
+                loggedInAsAdmin: "You logged in for order tracking",
+                loggedOut: "You logged out",
+                secretAdminActivated: "Order tracking mode activated!",
+                languageChanged: "Language changed to English",
+                darkThemeEnabled: "Dark theme enabled",
+                lightThemeEnabled: "Light theme enabled",
+                largeFontEnabled: "Large font enabled",
+                largeFontDisabled: "Large font disabled"
+            }
+        };
+
+        // Данные товаров на двух языках
+        const products = [
+            {
+                id: 1,
+                name: {
+                    ru: "Финиковые трюфели в золотой глазури",
+                    en: "Date Truffles in Gold Glaze"
+                },
+                description: {
+                    ru: "Нежные трюфели из отборных фиников сорта Маджхуль, покрытые глазурью из бельгийского шоколада с золотым напылением.",
+                    en: "Delicate truffles made from selected Majhoul dates, coated with Belgian chocolate glaze and gold dust."
+                },
+                weight: "250 г",
+                price: 1890,
+                category: ["date", "chocolate"],
+                badge: "new",
+                isGiftSet: false
+            },
+            {
+                id: 2,
+                name: {
+                    ru: "Лукум ассорти с фисташками и лепестками роз",
+                    en: "Assorted Loukoum with Pistachios and Rose Petals"
+                },
+                description: {
+                    ru: "Классическая восточная сладость, приготовленная по традиционному рецепту. Нежная сахарная помадка с кусочками фисташек и ароматом розы.",
+                    en: "Classic Eastern sweet made according to a traditional recipe. Delicate sugar paste with pieces of pistachios and rose flavor."
+                },
+                weight: "300 г",
+                price: 1450,
+                category: ["loukoum", "nuts"],
+                badge: "hit",
+                isGiftSet: false
+            },
+            {
+                id: 3,
+                name: {
+                    ru: "Шоколадные финики с миндалем",
+                    en: "Chocolate Dates with Almonds"
+                },
+                description: {
+                    ru: "Крупные отборные финики сорта 'Маджхуль', фаршированные миндалем и покрытые глазурью из premium темного шоколада.",
+                    en: "Large selected 'Majhoul' dates, stuffed with almonds and coated with premium dark chocolate glaze."
+                },
+                weight: "200 г",
+                price: 1650,
+                category: ["date", "chocolate", "nuts"],
+                badge: "",
+                isGiftSet: false
+            },
+            {
+                id: 4,
+                name: {
+                    ru: "Подарочный набор 'Восточная сказка'",
+                    en: "Gift Set 'Eastern Fairy Tale'"
+                },
+                description: {
+                    ru: "Эксклюзивный набор, включающий 7 видов восточных сладостей в роскошной золотой упаковке. Идеально для подарка.",
+                    en: "Exclusive set including 7 types of Eastern sweets in luxurious gold packaging. Perfect for a gift."
+                },
+                weight: "850 г",
+                price: 3250,
+                category: ["gift"],
+                badge: "hit",
+                isGiftSet: true
+            },
+            {
+                id: 5,
+                name: {
+                    ru: "Шоколадные конфеты с фисташками и кардамоном",
+                    en: "Chocolate Candies with Pistachios and Cardamom"
+                },
+                description: {
+                    ru: "Изысканные шоколадные конфеты ручной работы с целыми фисташками и ноткой кардамона.",
+                    en: "Exquisite handmade chocolate candies with whole pistachios and a hint of cardamom."
+                },
+                weight: "180 г",
+                price: 1750,
+                category: ["chocolate", "nuts"],
+                badge: "",
+                isGiftSet: false
+            },
+            {
+                id: 6,
+                name: {
+                    ru: "Финиковый лукум с кокосом",
+                    en: "Date Loukoum with Coconut"
+                },
+                description: {
+                    ru: "Нежный лукум на основе финикового пюре с кокосовой стружкой. Без добавления сахара.",
+                    en: "Delicate loukoum based on date puree with coconut flakes. No added sugar."
+                },
+                weight: "280 г",
+                price: 1350,
+                category: ["date", "loukoum"],
+                badge: "new",
+                isGiftSet: false
+            },
+            {
+                id: 7,
+                name: {
+                    ru: "Шоколадный набор 'Эмираты'",
+                    en: "Chocolate Set 'Emirates'"
+                },
+                description: {
+                    ru: "Набор из 12 шоколадных конфет с различными начинками: финик, фисташка, кофе, розовая вода.",
+                    en: "Set of 12 chocolate candies with various fillings: date, pistachio, coffee, rose water."
+                },
+                weight: "320 г",
+                price: 2100,
+                category: ["chocolate", "gift"],
+                badge: "",
+                isGiftSet: true
+            },
+            {
+                id: 8,
+                name: {
+                    ru: "Ассорти орехов в медовой глазури",
+                    en: "Assorted Nuts in Honey Glaze"
+                },
+                description: {
+                    ru: "Смесь отборных орехов (миндаль, фисташки, грецкий орех) в хрустящей медовой глазури с восточными специями.",
+                    en: "Mixture of selected nuts (almonds, pistachios, walnuts) in crispy honey glaze with Eastern spices."
+                },
+                weight: "350 г",
+                price: 1950,
+                category: ["nuts"],
+                badge: "",
+                isGiftSet: false
+            },
+            {
+                id: 9,
+                name: {
+                    ru: "Подарочный набор 'Роскошь Востока'",
+                    en: "Gift Set 'Eastern Luxury'"
+                },
+                description: {
+                    ru: "Премиальный набор из 10 видов эксклюзивных сладостей в подарочной деревянной шкатулке.",
+                    en: "Premium set of 10 types of exclusive sweets in a gift wooden box."
+                },
+                weight: "1200 г",
+                price: 4500,
+                category: ["gift"],
+                badge: "new",
+                isGiftSet: true
+            },
+            {
+                id: 10,
+                name: {
+                    ru: "Набор мини-лукумов",
+                    en: "Mini Loukoum Set"
+                },
+                description: {
+                    ru: "Ассорти из 5 видов лукума в мини-формате: классический, фисташковый, розовый, кокосовый, гранатовый.",
+                    en: "Assortment of 5 types of loukoum in mini format: classic, pistachio, pink, coconut, pomegranate."
+                },
+                weight: "400 г",
+                price: 1850,
+                category: ["loukoum", "gift"],
+                badge: "",
+                isGiftSet: true
+            }
+        ];
+
+        // Корзина и состояние приложения
+        let cart = [];
+        let currentFilter = "all";
+        let currentUser = null;
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        let searchQuery = "";
+        let logoClickCount = 0;
+        let secretAdminActivated = false;
+        let currentLanguage = 'ru';
+        let currentTheme = 'light';
+        let largeFont = false;
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Восстанавливаем настройки из localStorage
+            restoreSettings();
+            
+            renderProducts();
+            setupEventListeners();
+            updateCartCount();
+            checkUserSession();
+            initAnimations();
+            updateLanguageDisplay();
+            
+            // Инициализация мобильного меню
+            initMobileMenu();
+        });
+
+        // Инициализация мобильного меню
+        function initMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    if (mainNav.classList.contains('active')) {
+                        this.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        this.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+                
+                // Закрытие меню при клике на ссылку
+                document.querySelectorAll('#main-nav a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('active');
+                        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+        }
+
+        // Восстановление настроек
+        function restoreSettings() {
+            // Язык
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+                updatePageLanguage();
+            }
+            
+            // Тема
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                enableDarkTheme();
+            }
+            
+            // Шрифт
+            const savedFont = localStorage.getItem('largeFont');
+            if (savedFont === 'true') {
+                enableLargeFont();
+            }
+        }
+
+        // Обновление языка на странице
+        function updatePageLanguage() {
+            const lang = translations[currentLanguage];
+            
+            // Обновляем заголовок страницы
+            document.title = currentLanguage === 'ru' ? 'Конфеты из Дубая' : 'Dubai Candies';
+            
+            // Обновляем элементы с классом для перевода
+            updateElementText('.site-title', lang.siteTitle);
+            updateElementText('#home-link', lang.home);
+            updateElementText('#catalog-link', lang.catalog);
+            updateElementText('#gift-sets-link', lang.giftSets);
+            updateElementText('#about-link', lang.about);
+            updateElementText('.hero-title', lang.heroTitle);
+            updateElementText('.hero-subtitle', lang.heroSubtitle);
+            updateElementText('#hero-catalog-btn', lang.toCatalog);
+            updateElementText('.section-title', lang.advantages);
+            updateElementTextAll('.advantage-title', [
+                lang.advantage1Title,
+                lang.advantage2Title,
+                lang.advantage3Title,
+                lang.advantage4Title
+            ]);
+            updateElementTextAll('.advantage-text', [
+                lang.advantage1Text,
+                lang.advantage2Text,
+                lang.advantage3Text,
+                lang.advantage4Text
+            ]);
+            updateElementText('.section-title', lang.sweetsCatalog, 1);
+            updateElementTextAll('.filter-btn', [
+                lang.allProducts,
+                lang.chocolate,
+                lang.date,
+                lang.nuts,
+                lang.loukoum
+            ]);
+            updateElementText('.sort-label', lang.sortBy);
+            updateSelectOptions('#sort-select', [
+                lang.sortPopular,
+                lang.sortPriceAsc,
+                lang.sortPriceDesc,
+                lang.sortNew
+            ]);
+            updateElementText('.section-title', lang.aboutTitle, 2);
+            updateElementTextAll('.about-text-1', lang.aboutText1);
+            updateElementTextAll('.about-text-2', lang.aboutText2);
+            updateElementTextAll('.about-text-3', lang.aboutText3);
+            updateElementText('.footer-logo', lang.siteTitle);
+            updateElementText('.footer-description', lang.footerDescription);
+            updateElementTextAll('.footer-nav', [
+                lang.home,
+                lang.catalog,
+                lang.giftSets,
+                lang.about
+            ]);
+            updateElementText('.copyright-text', lang.copyright);
+            updateElementText('.cart-title', lang.cart);
+            updateElementText('.empty-cart-text', lang.emptyCart);
+            updateElementText('.total-label', lang.total);
+            updateElementText('#checkout-btn', lang.checkout);
+            updateElementText('.order-modal-title', lang.orderTitle);
+            updateElementText('.name-label', lang.nameLabel);
+            updateElementText('.phone-label', lang.phoneLabel);
+            updateElementText('.payment-label', lang.paymentLabel);
+            updateElementText('.cash-label', lang.cashLabel);
+            updateElementText('.transfer-label', lang.transferLabel);
+            updateElementText('#submit-order', lang.confirmOrder);
+            updateElementText('.success-title', lang.orderSuccess);
+            updateElementText('.success-text', lang.successText);
+            updateElementText('#track-this-order', lang.trackThisOrder);
+            updateElementText('#close-success-modal', lang.close);
+            updateElementText('.section-title', lang.orderTrackingAdminTitle, 3);
+            updateElementText('#back-to-main', lang.backToMain);
+            updateElementText('.no-orders-text', lang.noOrders);
+            updateElementText('.section-title', lang.orderTracking, 4);
+            updateElementText('.tracker-label', lang.orderNumberLabel);
+            updateElementText('#track-order-submit', lang.findOrder);
+            updateElementText('#guest-login', lang.guestLogin);
+            updateElementText('#track-order-btn', lang.trackOrder);
+            updateElementText('#logout-btn', lang.logout);
+            updateElementText('#order-tracking-admin-btn', lang.orderTrackingAdmin);
+            
+            // Обновляем placeholder
+            document.getElementById('search-input').placeholder = lang.searchPlaceholder;
+            document.getElementById('customer-name').placeholder = lang.namePlaceholder;
+            document.getElementById('customer-phone').placeholder = lang.phonePlaceholder;
+            document.getElementById('track-order-number').placeholder = lang.orderNumberPlaceholder;
+            
+            // Обновляем примеры
+            updateElementTextAll('.name-example', lang.nameExample);
+            updateElementTextAll('.phone-example', lang.phoneExample);
+            
+            // Обновляем язык на кнопке
+            document.querySelector('.current-lang').textContent = currentLanguage.toUpperCase();
+            
+            // Обновляем товары
+            renderProducts();
+            
+            // Обновляем корзину
+            renderCartItems();
+            
+            // Обновляем выпадающий список языков
+            document.querySelectorAll('.lang-option').forEach(option => {
+                if (option.dataset.lang === 'ru') {
+                    option.textContent = 'Русский';
+                } else {
+                    option.textContent = 'English';
+                }
+            });
+        }
+
+        // Вспомогательные функции для обновления текста
+        function updateElementText(selector, text, index = 0) {
+            const elements = document.querySelectorAll(selector);
+            if (elements.length > index) {
+                elements[index].textContent = text;
+            }
+        }
+
+        function updateElementTextAll(selector, texts) {
+            const elements = document.querySelectorAll(selector);
+            if (Array.isArray(texts)) {
+                elements.forEach((element, index) => {
+                    if (texts[index]) {
+                        element.textContent = texts[index];
+                    }
+                });
+            } else {
+                elements.forEach(element => {
+                    element.textContent = texts;
+                });
+            }
+        }
+
+        function updateSelectOptions(selector, options) {
+            const select = document.querySelector(selector);
+            if (select) {
+                select.querySelectorAll('option').forEach((option, index) => {
+                    if (options[index]) {
+                        option.textContent = options[index];
+                    }
+                });
+            }
+        }
+
+        // Обновление отображения текущего языка
+        function updateLanguageDisplay() {
+            document.querySelector('.current-lang').textContent = currentLanguage.toUpperCase();
+        }
+
+        // Функция рендеринга товаров
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            
+            // Фильтрация товаров
+            let filteredProducts = products;
+            
+            // Применяем фильтр по категории
+            if (currentFilter !== "all") {
+                filteredProducts = products.filter(product => 
+                    product.category.includes(currentFilter)
+                );
+            }
+            
+            // Применяем поиск
+            if (searchQuery.trim() !== "") {
+                const query = searchQuery.toLowerCase();
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name[currentLanguage].toLowerCase().includes(query) || 
+                    product.description[currentLanguage].toLowerCase().includes(query)
+                );
+            }
+            
+            // Сортировка товаров
+            const sortValue = document.getElementById('sort-select').value;
+            filteredProducts.sort((a, b) => {
+                switch(sortValue) {
+                    case 'price-asc': return a.price - b.price;
+                    case 'price-desc': return b.price - a.price;
+                    case 'new': 
+                        if (a.badge === 'new' && b.badge !== 'new') return -1;
+                        if (a.badge !== 'new' && b.badge === 'new') return 1;
+                        return 0;
+                    default: return 0;
+                }
+            });
+            
+            // Отображение товаров
+            if (filteredProducts.length === 0) {
+                const lang = translations[currentLanguage];
+                container.innerHTML = `<div class="empty-cart"><p>${lang.noProducts}</p></div>`;
+                return;
+            }
+            
+            filteredProducts.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card animate-on-scroll';
+                productCard.dataset.id = product.id;
+                productCard.dataset.category = product.category.join(' ');
+                
+                let badgeHTML = '';
+                if (product.badge) {
+                    const badgeClass = product.badge === 'new' ? 'new' : '';
+                    const badgeText = translations[currentLanguage][product.badge === 'new' ? 'newBadge' : 'hitBadge'];
+                    badgeHTML = `<div class="product-badge ${badgeClass}">${badgeText}</div>`;
+                }
+                
+                const addToCartText = translations[currentLanguage].addToCart;
+                
+                productCard.innerHTML = `
+                    ${badgeHTML}
+                    <div class="product-icon">
+                        <i class="fas fa-candy-cane"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name[currentLanguage]}</h3>
+                        <p class="product-description">${product.description[currentLanguage]}</p>
+                        <p class="product-weight">${product.weight}</p>
+                        <div class="product-price">
+                            <div class="price">${product.price.toLocaleString()} ₽</div>
+                            <button class="add-to-cart" data-id="${product.id}">
+                                <i class="fas fa-shopping-cart"></i> ${addToCartText}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(productCard);
+                
+                // Запускаем анимацию с задержкой
+                setTimeout(() => {
+                    productCard.classList.add('animated');
+                }, index * 100);
+            });
+            
+            // Добавляем обработчики событий для кнопок "В корзину"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.id);
+                    addToCart(productId);
+                });
+            });
+        }
+
+        // Настройка обработчиков событий
+        function setupEventListeners() {
+            // Фильтры
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    renderProducts();
+                });
+            });
+            
+            // Сортировка
+            document.getElementById('sort-select').addEventListener('change', function() {
+                renderProducts();
+            });
+            
+            // Поиск
+            document.getElementById('search-input').addEventListener('input', function() {
+                searchQuery = this.value;
+                renderProducts();
+            });
+            
+            // Корзина
+            document.getElementById('cart-icon').addEventListener('click', openCart);
+            document.getElementById('close-cart').addEventListener('click', closeCart);
+            
+            // Оформление заказа
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (cart.length === 0) {
+                    showNotification(translations[currentLanguage].cartEmpty);
+                    return;
+                }
+                
+                closeCart();
+                openOrderModal();
+            });
+            
+            // Модальное окно заказа
+            document.getElementById('close-order-modal').addEventListener('click', closeOrderModal);
+            document.getElementById('submit-order').addEventListener('click', submitOrder);
+            document.getElementById('close-success-modal').addEventListener('click', closeOrderModal);
+            document.getElementById('track-this-order').addEventListener('click', function() {
+                const orderNumber = document.getElementById('order-number-display').textContent;
+                closeOrderModal();
+                showOrderTracker();
+                document.getElementById('track-order-number').value = orderNumber;
+                trackOrder();
+            });
+            
+            // Пользовательское меню
+            document.getElementById('user-icon').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('user-dropdown').classList.toggle('active');
+            });
+            
+            // Вход как гость
+            document.getElementById('guest-login').addEventListener('click', function(e) {
+                e.preventDefault();
+                loginAsGuest();
+            });
+            
+            // Отслеживание заказа
+            document.getElementById('track-order-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showOrderTracker();
+                document.getElementById('user-dropdown').classList.remove('active');
+            });
+            
+            document.getElementById('track-order-submit').addEventListener('click', trackOrder);
+            
+            // Выход
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                logout();
+            });
+            
+            // Отслеживание заказов (теперь без пароля)
+            document.getElementById('order-tracking-admin-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                if (secretAdminActivated) {
+                    // Вход без пароля
+                    currentUser = 'admin';
+                    localStorage.setItem('currentUser', currentUser);
+                    updateUserUI();
+                    showOrderTrackingAdmin();
+                    showNotification(translations[currentLanguage].loggedInAsAdmin);
+                }
+                document.getElementById('user-dropdown').classList.remove('active');
+            });
+            
+            // Назад на главную
+            document.getElementById('back-to-main').addEventListener('click', showMainContent);
+            
+            // Переход на подарочные наборы
+            document.getElementById('gift-sets-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showGiftSets();
+            });
+            
+            // Навигация
+            setupNavigation();
+            
+            // Секретный вход для отслеживания заказов (5 кликов по логотипу)
+            document.getElementById('logo').addEventListener('click', function() {
+                logoClickCount++;
+                
+                if (logoClickCount >= 5 && !secretAdminActivated) {
+                    secretAdminActivated = true;
+                    showNotification(translations[currentLanguage].secretAdminActivated);
+                    logoClickCount = 0;
+                    
+                    // Показываем кнопку отслеживания заказов
+                    document.getElementById('order-tracking-admin-btn').style.display = 'block';
+                }
+                
+                // Сбрасываем счетчик через 3 секунды
+                setTimeout(() => {
+                    logoClickCount = 0;
+                }, 3000);
+            });
+            
+            // Переключение языка
+            document.getElementById('language-toggle').addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('language-dropdown').classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.lang-option').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    switchLanguage(lang);
+                    document.getElementById('language-dropdown').classList.remove('active');
+                });
+            });
+            
+            // Переключение темы
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            
+            // Переключение шрифта
+            document.getElementById('font-toggle').addEventListener('click', toggleFontSize);
+            
+            // Закрытие выпадающих меню при клике вне их
+            document.addEventListener('click', function() {
+                document.getElementById('user-dropdown').classList.remove('active');
+                document.getElementById('language-dropdown').classList.remove('active');
+            });
+            
+            // Закрытие корзины при клике вне ее
+            document.addEventListener('click', function(event) {
+                const cartSidebar = document.getElementById('cart-sidebar');
+                const cartIcon = document.getElementById('cart-icon');
+                
+                if (!cartSidebar.contains(event.target) && event.target !== cartIcon && !cartIcon.contains(event.target)) {
+                    closeCart();
+                }
+            });
+        }
+
+        // Настройка навигации
+        function setupNavigation() {
+            const navLinks = [
+                { id: 'home-link', target: 'home' },
+                { id: 'catalog-link', target: 'catalog' },
+                { id: 'about-link', target: 'about' }
+            ];
+            
+            navLinks.forEach(link => {
+                document.getElementById(link.id).addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                    setTimeout(() => {
+                        smoothScroll(link.target);
+                    }, 100);
+                });
+            });
+            
+            document.getElementById('hero-catalog-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showMainContent();
+                setTimeout(() => {
+                    smoothScroll('catalog');
+                }, 100);
+            });
+            
+            document.querySelectorAll('.footer-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.dataset.target;
+                    showMainContent();
+                    setTimeout(() => {
+                        if (target === 'gift-sets') {
+                            showGiftSets();
+                        } else if (target === 'home') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            smoothScroll(target);
+                        }
+                    }, 100);
+                });
+            });
+        }
+
+        // Функции для работы с корзиной
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            renderCartItems();
+            
+            const lang = translations[currentLanguage];
+            showNotification(`${product.name[currentLanguage]} ${lang.addedToCart}`);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = newQuantity;
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+            const lang = translations[currentLanguage];
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-cart"><p>${lang.emptyCart}</p></div>`;
+                totalElement.textContent = '0 ₽';
+                return;
+            }
+            
+            let total = 0;
+            let itemsHTML = '';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item" data-id="${item.id}" style="animation-delay: ${index * 0.1}s">
+                        <div class="cart-item-icon">
+                            <i class="fas fa-candy-cane"></i>
+                        </div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${item.name[currentLanguage]}</div>
+                            <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
+                            <div class="cart-item-actions">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="cart-item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                                <button class="remove-item" data-id="${item.id}">${lang.remove}</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = itemsHTML;
+            totalElement.textContent = `${total.toLocaleString()} ₽`;
+            
+            // Добавляем обработчики для кнопок в корзине
+            container.querySelectorAll('.minus').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.id);
+                    const item = cart.find(item => item.id === productId);
+                    if (item) {
+                        updateQuantity(productId, item.quantity - 1);
+                    }
+                });
+            });
+            
+            container.querySelectorAll('.plus').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.id);
+                    const item = cart.find(item => item.id === productId);
+                    if (item) {
+                        updateQuantity(productId, item.quantity + 1);
+                    }
+                });
+            });
+            
+            container.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.id);
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        function openCart() {
+            document.getElementById('cart-sidebar').classList.add('active');
+            renderCartItems();
+        }
+
+        function closeCart() {
+            document.getElementById('cart-sidebar').classList.remove('active');
+        }
+
+        // Функции для оформления заказа
+        function openOrderModal() {
+            renderOrderSummary();
+            document.getElementById('order-modal').classList.add('active');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.remove('active');
+            document.getElementById('order-form').style.display = 'block';
+            document.getElementById('order-success').style.display = 'none';
+        }
+
+        function renderOrderSummary() {
+            const container = document.getElementById('order-summary');
+            let total = 0;
+            let itemsHTML = '';
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="order-summary-item">
+                        <span>${item.name[currentLanguage]} (${item.quantity} шт.)</span>
+                        <span>${itemTotal.toLocaleString()} ₽</span>
+                    </div>
+                `;
+            });
+            
+            const lang = translations[currentLanguage];
+            itemsHTML += `
+                <div class="order-summary-item" style="font-weight: bold; border-top: 1px solid var(--border-color); padding-top: 10px;">
+                    <span>${lang.total}:</span>
+                    <span>${total.toLocaleString()} ₽</span>
+                </div>
+            `;
+            
+            container.innerHTML = itemsHTML;
+        }
+
+        function submitOrder() {
+            const customerName = document.getElementById('customer-name').value.trim();
+            const customerPhone = document.getElementById('customer-phone').value.trim();
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            
+            if (!customerName || !customerPhone) {
+                showNotification(translations[currentLanguage].fillAllFields);
+                return;
+            }
+            
+            // Генерируем номер заказа
+            const orderNumber = 'ORD-' + Date.now().toString().slice(-8);
+            
+            // Создаем заказ
+            const order = {
+                id: orderNumber,
+                customerName,
+                customerPhone,
+                paymentMethod,
+                items: [...cart],
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                date: new Date().toLocaleString('ru-RU'),
+                status: 'pending',
+                userId: currentUser === 'guest' ? 'guest_' + Date.now() : null
+            };
+            
+            // Сохраняем заказ
+            orders.push(order);
+            localStorage.setItem('orders', JSON.stringify(orders));
+            
+            // Сохраняем номер заказа для гостя
+            if (currentUser === 'guest') {
+                let guestOrders = JSON.parse(localStorage.getItem('guestOrders')) || [];
+                guestOrders.push(orderNumber);
+                localStorage.setItem('guestOrders', JSON.stringify(guestOrders));
+            }
+            
+            // Очищаем корзину
+            cart = [];
+            updateCartCount();
+            renderCartItems();
+            
+            // Показываем успешное сообщение
+            document.getElementById('order-form').style.display = 'none';
+            document.getElementById('order-success').style.display = 'block';
+            document.getElementById('order-number-display').textContent = orderNumber;
+            
+            // Сбрасываем форму
+            document.getElementById('customer-name').value = '';
+            document.getElementById('customer-phone').value = '';
+            
+            showNotification(translations[currentLanguage].orderPlaced);
+        }
+
+        // Функции для пользователей
+        function checkUserSession() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = savedUser;
+                updateUserUI();
+            }
+        }
+
+        function loginAsGuest() {
+            currentUser = 'guest';
+            localStorage.setItem('currentUser', currentUser);
+            updateUserUI();
+            showNotification(translations[currentLanguage].loggedInAsGuest);
+            document.getElementById('user-dropdown').classList.remove('active');
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateUserUI();
+            
+            // Скрываем отслеживание заказов если открыто
+            document.getElementById('order-tracking-admin').style.display = 'none';
+            document.getElementById('order-tracker').style.display = 'none';
+            
+            // Показываем основной контент
+            showMainContent();
+            
+            showNotification(translations[currentLanguage].loggedOut);
+            document.getElementById('user-dropdown').classList.remove('active');
+        }
+
+        function updateUserUI() {
+            const guestLogin = document.getElementById('guest-login');
+            const trackOrderBtn = document.getElementById('track-order-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const orderTrackingAdminBtn = document.getElementById('order-tracking-admin-btn');
+            
+            if (currentUser === 'guest') {
+                guestLogin.style.display = 'none';
+                trackOrderBtn.style.display = 'block';
+                logoutBtn.style.display = 'block';
+                orderTrackingAdminBtn.style.display = 'none';
+            } else if (currentUser === 'admin') {
+                guestLogin.style.display = 'none';
+                trackOrderBtn.style.display = 'block';
+                logoutBtn.style.display = 'block';
+                orderTrackingAdminBtn.style.display = secretAdminActivated ? 'block' : 'none';
+            } else {
+                guestLogin.style.display = 'block';
+                trackOrderBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+                orderTrackingAdminBtn.style.display = 'none';
+            }
+        }
+
+        function showOrderTrackingAdmin() {
+            // Скрываем основной контент
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Показываем отслеживание заказов
+            document.getElementById('order-tracking-admin').style.display = 'block';
+            document.getElementById('order-tracker').style.display = 'none';
+            
+            renderAdminOrders();
+        }
+
+        function showOrderTracker() {
+            // Скрываем основной контент
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Показываем трекер заказов
+            document.getElementById('order-tracker').style.display = 'block';
+            document.getElementById('order-tracking-admin').style.display = 'none';
+            
+            document.getElementById('tracker-results').innerHTML = '';
+        }
+
+        function showMainContent() {
+            // Показываем основной контент
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.style.display = 'block';
+            });
+            
+            // Скрываем специальные разделы
+            document.getElementById('order-tracking-admin').style.display = 'none';
+            document.getElementById('order-tracker').style.display = 'none';
+            
+            // Закрываем мобильное меню
+            const mainNav = document.getElementById('main-nav');
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            if (mainNav) {
+                mainNav.classList.remove('active');
+            }
+            if (mobileMenuToggle) {
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            // Прокручиваем наверх
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderAdminOrders() {
+            const container = document.getElementById('admin-orders-container');
+            const lang = translations[currentLanguage];
+            
+            if (orders.length === 0) {
+                container.innerHTML = `<div class="empty-cart" id="no-orders-message"><p>${lang.noOrders}</p></div>`;
+                return;
+            }
+            
+            let ordersHTML = '';
+            
+            // Сортируем заказы по дате (новые первыми)
+            const sortedOrders = [...orders].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            sortedOrders.forEach((order, index) => {
+                let itemsHTML = '';
+                order.items.forEach(item => {
+                    itemsHTML += `
+                        <div class="admin-order-item">
+                            <span>${item.name[currentLanguage]} (${item.quantity} шт.)</span>
+                            <span>${(item.price * item.quantity).toLocaleString()} ₽</span>
+                        </div>
+                    `;
+                });
+                
+                let statusClass = '';
+                let statusText = '';
+                
+                switch(order.status) {
+                    case 'pending':
+                        statusClass = 'status-pending';
+                        statusText = lang.statusPending;
+                        break;
+                    case 'processing':
+                        statusClass = 'status-processing';
+                        statusText = lang.statusProcessing;
+                        break;
+                    case 'delivered':
+                        statusClass = 'status-delivered';
+                        statusText = lang.statusDelivered;
+                        break;
+                    case 'cancelled':
+                        statusClass = 'status-cancelled';
+                        statusText = lang.statusCancelled;
+                        break;
+                }
+                
+                const paymentText = order.paymentMethod === 'cash' ? lang.cash : lang.transfer;
+                
+                // Добавляем кнопку удаления для отмененных заказов
+                let deleteButton = '';
+                if (order.status === 'cancelled') {
+                    deleteButton = `
+                        <button class="btn" style="margin-top: 10px; background-color: #dc3545;" onclick="deleteOrder('${order.id}')">
+                            ${lang.deleteOrder}
+                        </button>
+                    `;
+                }
+                
+                ordersHTML += `
+                    <div class="admin-order" data-id="${order.id}" style="animation-delay: ${index * 0.1}s">
+                        <div class="admin-order-header">
+                            <div>
+                                <h4>${lang.order} ${order.id}</h4>
+                                <p>${order.date}</p>
+                            </div>
+                            <div>
+                                <span class="admin-order-status ${statusClass}">${statusText}</span>
+                                <select class="status-select" data-order="${order.id}">
+                                    <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>${lang.statusPending}</option>
+                                    <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>${lang.statusProcessing}</option>
+                                    <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>${lang.statusDelivered}</option>
+                                    <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>${lang.statusCancelled}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="admin-order-items">
+                            ${itemsHTML}
+                        </div>
+                        <div>
+                            <p><strong>${lang.client}:</strong> ${order.customerName}</p>
+                            <p><strong>${lang.phone}:</strong> ${order.customerPhone}</p>
+                            <p><strong>${lang.paymentMethod}:</strong> ${paymentText}</p>
+                            <p><strong>${lang.total}:</strong> ${order.total.toLocaleString()} ₽</p>
+                            ${deleteButton}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = ordersHTML;
+            
+            // Добавляем обработчики для изменения статуса заказа
+            container.querySelectorAll('.status-select').forEach(select => {
+                select.addEventListener('change', function() {
+                    const orderId = this.dataset.order;
+                    const newStatus = this.value;
+                    updateOrderStatus(orderId, newStatus);
+                });
+            });
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            const orderIndex = orders.findIndex(order => order.id === orderId);
+            
+            if (orderIndex !== -1) {
+                orders[orderIndex].status = newStatus;
+                localStorage.setItem('orders', JSON.stringify(orders));
+                showNotification(`${translations[currentLanguage].order} ${orderId} ${translations[currentLanguage].statusChanged}`);
+                renderAdminOrders();
+            }
+        }
+
+        // Функция удаления заказа
+        window.deleteOrder = function(orderId) {
+            const lang = translations[currentLanguage];
+            if (confirm(lang.deleteConfirm)) {
+                const orderIndex = orders.findIndex(order => order.id === orderId);
+                
+                if (orderIndex !== -1) {
+                    orders.splice(orderIndex, 1);
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    showNotification(`${lang.order} ${orderId} ${lang.orderDeleted}`);
+                    renderAdminOrders();
+                }
+            }
+        };
+
+        // Функция для показа подарочных наборов
+        function showGiftSets() {
+            // Устанавливаем фильтр на подарочные наборы
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Ищем кнопку фильтра для подарочных наборов
+            const giftFilterBtn = document.querySelector('.filter-btn[data-filter="gift"]');
+            if (giftFilterBtn) {
+                giftFilterBtn.classList.add('active');
+                currentFilter = 'gift';
+            }
+            
+            renderProducts();
+            
+            // Прокручиваем к каталогу
+            setTimeout(() => {
+                smoothScroll('catalog');
+            }, 100);
+        }
+
+        // Функция отслеживания заказа
+        function trackOrder() {
+            const orderNumber = document.getElementById('track-order-number').value.trim();
+            const resultsContainer = document.getElementById('tracker-results');
+            const lang = translations[currentLanguage];
+            
+            if (!orderNumber) {
+                resultsContainer.innerHTML = `<div class="empty-cart"><p>${lang.enterOrderNumber}</p></div>`;
+                return;
+            }
+            
+            const order = orders.find(o => o.id === orderNumber);
+            
+            if (!order) {
+                resultsContainer.innerHTML = `<div class="empty-cart"><p>${lang.orderNotFound}</p></div>`;
+                return;
+            }
+            
+            let itemsHTML = '';
+            order.items.forEach(item => {
+                itemsHTML += `
+                    <div class="admin-order-item">
+                        <span>${item.name[currentLanguage]} (${item.quantity} шт.)</span>
+                        <span>${(item.price * item.quantity).toLocaleString()} ₽</span>
+                    </div>
+                `;
+            });
+            
+            let statusClass = '';
+            let statusText = '';
+            
+            switch(order.status) {
+                case 'pending':
+                    statusClass = 'status-pending';
+                    statusText = lang.statusPending;
+                    break;
+                case 'processing':
+                    statusClass = 'status-processing';
+                    statusText = lang.statusProcessing;
+                    break;
+                case 'delivered':
+                    statusClass = 'status-delivered';
+                    statusText = lang.statusDelivered;
+                    break;
+                case 'cancelled':
+                    statusClass = 'status-cancelled';
+                    statusText = lang.statusCancelled;
+                    break;
+            }
+            
+            const paymentText = order.paymentMethod === 'cash' ? lang.cash : lang.transfer;
+            
+            let cancelButton = '';
+            if (order.status === 'pending' || order.status === 'processing') {
+                cancelButton = `<button class="btn" style="margin-top: 15px;" onclick="cancelOrder('${order.id}')">${lang.cancelOrder}</button>`;
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="tracker-order">
+                    <div class="admin-order-header">
+                        <div>
+                            <h4>${lang.order} ${order.id}</h4>
+                            <p>${order.date}</p>
+                        </div>
+                        <div>
+                            <span class="admin-order-status ${statusClass}">${statusText}</span>
+                        </div>
+                    </div>
+                    <div class="admin-order-items">
+                        ${itemsHTML}
+                    </div>
+                    <div>
+                        <p><strong>${lang.client}:</strong> ${order.customerName}</p>
+                        <p><strong>${lang.phone}:</strong> ${order.customerPhone}</p>
+                        <p><strong>${lang.paymentMethod}:</strong> ${paymentText}</p>
+                        <p><strong>${lang.total}:</strong> ${order.total.toLocaleString()} ₽</p>
+                    </div>
+                    ${cancelButton}
+                </div>
+            `;
+        }
+
+        // Функция отмены заказа
+        window.cancelOrder = function(orderId) {
+            const lang = translations[currentLanguage];
+            if (confirm(lang.cancelConfirm)) {
+                const orderIndex = orders.findIndex(order => order.id === orderId);
+                
+                if (orderIndex !== -1) {
+                    orders[orderIndex].status = 'cancelled';
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    showNotification(`${lang.order} ${orderId} ${lang.orderCancelled}`);
+                    trackOrder(); // Обновляем отображение
+                }
+            }
+        };
+
+        // Функции для переключения языка
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            updatePageLanguage();
+            updateLanguageDisplay();
+            showNotification(translations[lang].languageChanged);
+        }
+
+        // Функции для переключения темы
+        function toggleTheme() {
+            if (currentTheme === 'light') {
+                enableDarkTheme();
+            } else {
+                enableLightTheme();
+            }
+        }
+
+        function enableDarkTheme() {
+            document.body.classList.add('dark-theme');
+            currentTheme = 'dark';
+            localStorage.setItem('theme', 'dark');
+            document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+            showNotification(translations[currentLanguage].darkThemeEnabled);
+        }
+
+        function enableLightTheme() {
+            document.body.classList.remove('dark-theme');
+            currentTheme = 'light';
+            localStorage.setItem('theme', 'light');
+            document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-moon"></i>';
+            showNotification(translations[currentLanguage].lightThemeEnabled);
+        }
+
+        // Функции для переключения размера шрифта
+        function toggleFontSize() {
+            if (largeFont) {
+                disableLargeFont();
+            } else {
+                enableLargeFont();
+            }
+        }
+
+        function enableLargeFont() {
+            document.body.style.fontSize = '18px';
+            largeFont = true;
+            localStorage.setItem('largeFont', 'true');
+            document.getElementById('font-toggle').style.color = '#FFD700';
+            showNotification(translations[currentLanguage].largeFontEnabled);
+        }
+
+        function disableLargeFont() {
+            document.body.style.fontSize = '';
+            largeFont = false;
+            localStorage.setItem('largeFont', 'false');
+            document.getElementById('font-toggle').style.color = '';
+            showNotification(translations[currentLanguage].largeFontDisabled);
+        }
+
+        // Инициализация анимаций
+        function initAnimations() {
+            // Анимация при скролле
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                const windowHeight = window.innerHeight;
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            // Анимация для элементов преимуществ
+            const advantageItems = document.querySelectorAll('.advantage-item');
+            advantageItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animated');
+                }, index * 200);
+            });
+            
+            // Анимация для ссылок в футере
+            const footerLinks = document.querySelectorAll('.footer-links li');
+            footerLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.classList.add('animated');
+                }, index * 100);
+            });
+            
+            // Анимация для социальных ссылок
+            const socialLinks = document.querySelectorAll('.social-links a');
+            socialLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.classList.add('animated');
+                }, index * 150);
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Запускаем сразу при загрузке
+        }
+
+        // Плавная прокрутка
+        function smoothScroll(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: var(--gold);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px var(--shadow-color);
+                z-index: 1002;
+                font-weight: 500;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+                max-width: 90%;
+                font-size: 14px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
